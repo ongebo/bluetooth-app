@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Paralysis Detector</string>
+    <string name="x_message">Enter x message</string>
+    <string name="x_negative_message">Enter x_neg message</string>
+    <string name="y_message">Enter y message</string>
+    <string name="y_negative_message">Enter y_neg message</string>
+    <string name="send_button">Set Values</string>
 </resources>
