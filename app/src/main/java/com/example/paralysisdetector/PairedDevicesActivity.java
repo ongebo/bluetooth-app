@@ -18,14 +18,16 @@ public class PairedDevicesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paired_devices);
 
-        RecyclerView recyclerView;
         Bundle bundle = getIntent().getExtras();
         ArrayList<BluetoothDevice> pairedDevices;
         pairedDevices = (ArrayList) bundle.getSerializable(
                 MainActivity.PAIRED_DEVICES
         );
+        setUpRecyclerView(pairedDevices);
+    }
 
-        recyclerView = findViewById(R.id.recycler_view);
+    private void setUpRecyclerView(ArrayList<BluetoothDevice> pairedDevices) {
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
@@ -39,6 +41,6 @@ public class PairedDevicesActivity extends AppCompatActivity {
             }
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new PairedDevicesAdapter(pairedDevices));
+        recyclerView.setAdapter(new PairedDevicesAdapter(pairedDevices, this));
     }
 }
