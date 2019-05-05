@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class PairedDevicesAdapter extends RecyclerView.Adapter<PairedDevicesAdapter.ViewHolder> {
+public class PairedDevicesAdapter extends RecyclerView.Adapter<PairedDevicesAdapter.DeviceViewHolder> {
     private List<BluetoothDevice> pairedDevices;
 
     public PairedDevicesAdapter(List<BluetoothDevice> pairedDevices) {
@@ -19,14 +19,14 @@ public class PairedDevicesAdapter extends RecyclerView.Adapter<PairedDevicesAdap
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public DeviceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.paired_device_details, viewGroup, false);
-        return new ViewHolder(view);
+        return new DeviceViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull DeviceViewHolder viewHolder, int i) {
         TextView deviceName = viewHolder.view.findViewById(R.id.device_name);
         TextView deviceAddress = viewHolder.view.findViewById(R.id.device_address);
         deviceName.setText(pairedDevices.get(i).getName());
@@ -38,10 +38,10 @@ public class PairedDevicesAdapter extends RecyclerView.Adapter<PairedDevicesAdap
         return pairedDevices.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class DeviceViewHolder extends RecyclerView.ViewHolder {
         public View view;
 
-        public ViewHolder(View view) {
+        public DeviceViewHolder(View view) {
             super(view);
             this.view = view;
         }
