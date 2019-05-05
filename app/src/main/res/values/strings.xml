@@ -5,4 +5,6 @@
     <string name="y_message">Enter y message</string>
     <string name="y_negative_message">Enter y_neg message</string>
     <string name="send_button">Set Values</string>
+    <string name="no_bluetooth_adapter_error">Your device does not support bluetooth.</string>
+    <string name="enable_bluetooth_message">Please enable bluetooth to continue.</string>
 </resources>
